@@ -3,10 +3,14 @@ chrome.runtime.onInstalled.addListener(function() {
     chrome.storage.sync.set({
         'time_installed': install_time.getTime(),
         'logo_attribution': "Created by the creative outlet from Noun Project.",
-        'saved_items': []}, () => { console.log("installed time was: " + install_time.toLocaleDateString("en-US"))})
+        'saved_items': []}, () => {
+            console.log("installed time was: " + install_time.toLocaleTimeString("en-US"))
+            set_debug_funcs()
+        })
 })
 
-
-function debug_read_storage() {
-    chrome.storage.sync.get((items) => console.log(items))
+function set_debug_funcs() {
+    (<any>window).debug_read_storage = function() {
+        chrome.storage.sync.get((items) => console.log(items))
+    }
 }
