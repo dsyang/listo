@@ -3,6 +3,7 @@ export interface StorageState extends SavedItems {
     logo_attribution: string,
 }
 
+export const saved_items_key: string = "saved_items"
 export interface SavedItems {
     saved_items: Item[]
 }

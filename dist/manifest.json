@@ -3,7 +3,7 @@
     "version": "0.1",
     "description": "Extension that adds two buttons: save (saves the website) restore (opens all websites as tabs in a new window)",
     "manifest_version": 2,
-    "permissions": ["activeTab", "storage"],
+    "permissions": ["activeTab", "storage", "tabs"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false

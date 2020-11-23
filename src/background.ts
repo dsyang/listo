@@ -1,4 +1,4 @@
-import { AppPrimaryColor, StorageState } from "./types"
+import { AppPrimaryColor, StorageState, saved_items_key } from "./types"
 
 /** Set the initial state for the extension. */
 chrome.runtime.onInstalled.addListener(function() {
@@ -16,8 +16,8 @@ chrome.runtime.onInstalled.addListener(function() {
 
 /** React to changes to saved_items and update the Badge. */
 chrome.storage.onChanged.addListener(function(changes) {
-    let saved_items = changes['saved_items']
-    if (changes.hasOwnProperty('saved_items')) {
+    let saved_items = changes[saved_items_key]
+    if (changes.hasOwnProperty(saved_items_key)) {
         const num_items: number = saved_items.newValue.length
         if (num_items > 9) {
             chrome.browserAction.setBadgeBackgroundColor({color: AppPrimaryColor})
