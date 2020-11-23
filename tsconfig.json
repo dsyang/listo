@@ -5,7 +5,8 @@
         "outDir": "./dist",
         "jsx": "react",
         "noImplicitAny": true,
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "plugins": [{"name": "typescript-plugin-css-modules"}]
     },
     "compileOnSave": true
 }

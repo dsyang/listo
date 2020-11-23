@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react" 
 import { Item, SavedItems } from "../types";
+import styles from "./AddButton.module.css";
 
 export interface AddButtonProps {
     title: string,
@@ -7,7 +8,7 @@ export interface AddButtonProps {
 }
 
 export const AddButton = (pageInfo : AddButtonProps) =>  {
-    return <button id="reactButton" onClick = {() => addToStorage(pageInfo.title, pageInfo.url)}>+</button>
+    return <button className={styles.add} onClick = {() => addToStorage(pageInfo.title, pageInfo.url)}>+</button>
 }
 
 /** Add a new Item into chrome storage. */

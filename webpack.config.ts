@@ -3,7 +3,7 @@ module.exports = {
     devtool: "inline-cheap-source-map",
     entry: {
         background: "./src/background.ts",
-        popup: "./src/popup.tsx"
+        popup: "./src/popup.tsx",
     },
     module: {
         rules: [
@@ -12,6 +12,11 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.module.css$/i,
+                use: ['style-loader','css-loader'],
+                exclude: /dist/,
+            }
         ],
     },
     resolve: {
