@@ -1,13 +1,18 @@
 import React from "react"
-import styles from "./Buttons.module.css"
-
+import { Button } from "@material-ui/core"
+import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
 export interface RestoreAllButtonProps {
     urls : string[]
 }
 
-export const RestoreAllButton = (props: RestoreAllButtonProps) =>  {
-    return <button className={styles.add} onClick = {() => restoreAllInNewWindow(props.urls)}>Restore</button>
-}
+export const RestoreAllButton = (props: RestoreAllButtonProps) =>     
+    <Button
+        size="small"
+        variant="contained"
+        startIcon={<OpenInBrowserIcon />}
+        onClick = {() => restoreAllInNewWindow(props.urls)}>
+        Open All
+    </Button>
 
 /** Open all saved items in a new window. */
 function restoreAllInNewWindow(urls: string[]) {

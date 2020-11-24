@@ -19,9 +19,9 @@ export const App = (props: AppProps) => {
             : <AddButton {...props.actionButton} />
     return <div>
         <div> 
-            {actionButton}
-            <RestoreAllButton urls={props.savedItemsList.saved_items.map((item) => item.url)}/>
             <ClearAllButton />
+            <RestoreAllButton urls={props.savedItemsList.saved_items.map((item) => item.url)}/>
+            {actionButton}
         </div>
         <SavedItemsList {...props.savedItemsList}/>
     </div> 

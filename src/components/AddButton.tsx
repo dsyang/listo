@@ -1,11 +1,17 @@
 import React from "react"
 import { ActionButtonProps, Item, SavedItems } from "../types"
-import styles from "./Buttons.module.css"
+import { Button } from "@material-ui/core"
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
+export const AddButton = (pageInfo : ActionButtonProps) => 
+    <Button
+        variant="contained"
+        color="primary"
+        startIcon={<AddCircleOutlineIcon />}
+        onClick = {() => addToStorage(pageInfo.title, pageInfo.url)}>
+        Save to listo
+    </Button>
 
-export const AddButton = (pageInfo : ActionButtonProps) =>  {
-    return <button className={styles.add} onClick = {() => addToStorage(pageInfo.title, pageInfo.url)}>+</button>
-}
 
 /** Add a new Item into chrome storage. */
 function addToStorage(title: string, url: string) {

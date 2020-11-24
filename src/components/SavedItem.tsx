@@ -1,5 +1,7 @@
+import { IconButton } from "@material-ui/core"
 import React from "react"
 import { Item, SavedItems, saved_items_key } from "../types"
+import DeleteIcon from "@material-ui/icons/Delete"
 
 export interface SavedItemProps extends Item {
 
@@ -9,10 +11,14 @@ export const SavedItem = (props: SavedItemProps) => {
     return <div onClick={() => itemClick(props.url)}>
         <p>{props.title}</p>
         <p>{props.url}</p>
-        <button onClick={(e) => {
-            removeItem(props)
-            e.stopPropagation()
-        }}> Remove. </button>
+        <IconButton
+            size="small" 
+            onClick={(e) => {
+                removeItem(props)
+                e.stopPropagation()
+                }}> 
+            <DeleteIcon />
+        </IconButton>
     </div>
 }
 

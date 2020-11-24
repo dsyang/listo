@@ -1,10 +1,16 @@
 import React from "react"
 import { ActionButtonProps, Item, SavedItems, saved_items_key } from "../types"
-import styles from "./Buttons.module.css"
+import { Button } from "@material-ui/core"
+import DeleteIcon from "@material-ui/icons/Delete"
 
-export const RemoveButton = (pageInfo : ActionButtonProps) =>  {
-    return <button className={styles.add} onClick = {() => removeFromStorage(pageInfo.title, pageInfo.url)}>-</button>
-}
+export const RemoveButton = (pageInfo : ActionButtonProps) => 
+    <Button
+        variant="contained"
+        color="secondary"
+        startIcon={<DeleteIcon />}
+        onClick = {() => removeFromStorage(pageInfo.title, pageInfo.url)}>
+        Remove from listo
+    </Button>
 
 /** Add a new Item into chrome storage. */
 function removeFromStorage(title: string, url: string) {
