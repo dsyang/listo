@@ -48,7 +48,7 @@ function isDataValid(tabs: chrome.tabs.Tab[], items: SavedItems | null) {
 
 function constuctAppProps(activeTab: chrome.tabs.Tab, savedItems: SavedItems): AppProps {
     return {
-        addButton: {title: activeTab.title!!,  url: activeTab.url!!},
+        actionButton: {title: activeTab.title!!,  url: activeTab.url!!},
         savedItemsList: savedItems
     }
 }

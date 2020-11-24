@@ -1,13 +1,9 @@
 import React from "react"
-import { Item, SavedItems } from "../types"
+import { ActionButtonProps, Item, SavedItems } from "../types"
 import styles from "./Buttons.module.css"
 
-export interface AddButtonProps {
-    title: string,
-    url: string
-}
 
-export const AddButton = (pageInfo : AddButtonProps) =>  {
+export const AddButton = (pageInfo : ActionButtonProps) =>  {
     return <button className={styles.add} onClick = {() => addToStorage(pageInfo.title, pageInfo.url)}>+</button>
 }
 

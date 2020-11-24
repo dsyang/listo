@@ -11,5 +11,7 @@ export const RestoreAllButton = (props: RestoreAllButtonProps) =>  {
 
 /** Open all saved items in a new window. */
 function restoreAllInNewWindow(urls: string[]) {
-    console.log("open these urls: ", urls)
+    chrome.windows.create({url: urls}, (window) => {
+        console.log("open these urls: ", urls)
+    })
 }

@@ -13,4 +13,9 @@ export interface Item {
     url: string
 }
 
+export interface ActionButtonProps {
+    title: string,
+    url: string
+}
+
 export const AppPrimaryColor: string = "#C757FD"
