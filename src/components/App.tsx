@@ -5,6 +5,8 @@ import { RestoreAllButton } from "./RestoreAllButton"
 import { ClearAllButton } from "./ClearAllButton"
 import { SavedItemsListProps, SavedItemsList} from "./SavedItemsList"
 import { ActionButtonProps, Item, SavedItems } from "../types"
+import styles from "./App.module.css"
+
 
 export interface AppProps {
     actionButton : ActionButtonProps,
@@ -18,9 +20,12 @@ export const App = (props: AppProps) => {
             ? <RemoveButton {...props.actionButton} />
             : <AddButton {...props.actionButton} />
     return <div>
-        <div> 
-            <ClearAllButton />
-            <RestoreAllButton urls={props.savedItemsList.saved_items.map((item) => item.url)}/>
+        <div className={styles["top-button-group"]}>
+            <div>
+                <ClearAllButton />
+                <RestoreAllButton 
+                    urls={props.savedItemsList.saved_items.map((item) => item.url)}/>
+            </div>
             {actionButton}
         </div>
         <SavedItemsList {...props.savedItemsList}/>

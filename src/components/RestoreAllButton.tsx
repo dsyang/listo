@@ -1,18 +1,18 @@
 import React from "react"
-import { Button } from "@material-ui/core"
+import { IconButton, Tooltip } from "@material-ui/core"
 import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
 export interface RestoreAllButtonProps {
     urls : string[]
 }
 
-export const RestoreAllButton = (props: RestoreAllButtonProps) =>     
-    <Button
+export const RestoreAllButton = (props: RestoreAllButtonProps) =>
+    <Tooltip title="Open all items in new window.">
+    <IconButton
         size="small"
-        variant="contained"
-        startIcon={<OpenInBrowserIcon />}
         onClick = {() => restoreAllInNewWindow(props.urls)}>
-        Open All
-    </Button>
+        <OpenInBrowserIcon />
+    </IconButton>
+    </Tooltip>
 
 /** Open all saved items in a new window. */
 function restoreAllInNewWindow(urls: string[]) {

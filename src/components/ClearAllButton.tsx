@@ -1,16 +1,16 @@
 import React from "react"
-import { SavedItems, saved_items_key } from "../types"
-import { Button } from "@material-ui/core"
+import { SavedItems } from "../types"
+import { IconButton, Tooltip } from "@material-ui/core"
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 
-export const ClearAllButton = () => 
-    <Button 
-        size="small"
-        variant="contained"
-        startIcon={<DeleteSweepIcon />}
-        onClick = {() => clearAllSavedItems()}>
-        Clear All
-    </Button>
+export const ClearAllButton = () =>
+    <Tooltip title="Remove all items from listo.">
+        <IconButton 
+            size="small"
+            onClick = {() => clearAllSavedItems()}>
+            <DeleteSweepIcon />
+        </IconButton>
+    </Tooltip>
 
 /** Clear all saved items in chrome storage. */
 function clearAllSavedItems() {
