@@ -1,5 +1,5 @@
-import { Typography } from "@material-ui/core"
 import React from "react"
+import { Typography } from "@material-ui/core"
 
 export const Error = (props : {content: string}) =>  {
     return <React.Fragment>

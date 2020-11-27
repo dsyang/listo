@@ -1,7 +1,7 @@
 import React from "react"
-import { SavedItems } from "../types"
 import { IconButton, Tooltip } from "@material-ui/core"
-import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
+import DeleteSweepIcon from '@material-ui/icons/DeleteSweep'
+import { SavedItems } from "../types"
 
 export const ClearAllButton = () =>
     <Tooltip title="Remove all items from listo.">

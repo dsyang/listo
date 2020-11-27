@@ -3,10 +3,9 @@ import { AddButton } from "./AddButton"
 import { RemoveButton } from "./RemoveButton"
 import { RestoreAllButton } from "./RestoreAllButton"
 import { ClearAllButton } from "./ClearAllButton"
-import { SavedItemsListProps, SavedItemsList} from "./SavedItemsList"
-import { ActionButtonProps, Item, SavedItems } from "../types"
+import { SavedItemsList} from "./SavedItemsList"
+import { ActionButtonProps, SavedItems } from "../types"
 import styles from "./App.module.css"
-
 
 export interface AppProps {
     actionButton : ActionButtonProps,

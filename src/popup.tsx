@@ -1,7 +1,9 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { ThemeProvider } from "@material-ui/core"
 import { App, AppProps } from "./components/App"
 import { Error } from "./components/Error"
+import { Theme } from "./components/Theme"
 import { SavedItems, saved_items_key } from "./types"
 
 /** Get active tab and current list information. */
@@ -28,10 +30,12 @@ chrome.storage.onChanged.addListener(function(changes) {
 function renderApp(tabs: chrome.tabs.Tab[], items: SavedItems | null) {
     if (isDataValid(tabs, items)) {
         const appData = constuctAppProps(tabs[0], items!!)
-        ReactDOM.render(<App {...appData} />, document.getElementById("root"))
+        ReactDOM.render(
+            themed(<App {...appData} />),
+            document.getElementById("root"))
     } else {
         ReactDOM.render(
-            <Error content="Sorry! We could not determine this tab's information." />,
+            themed(<Error content="Sorry! We could not determine this tab's information." />),
             document.getElementById("root"))
     }
 }
@@ -51,4 +55,10 @@ function constuctAppProps(activeTab: chrome.tabs.Tab, savedItems: SavedItems): A
         actionButton: {title: activeTab.title!!,  url: activeTab.url!!},
         savedItemsList: savedItems
     }
+}
+
+function themed(child: JSX.Element) {
+    return <ThemeProvider theme={Theme}>
+        {child}
+    </ThemeProvider>
 }

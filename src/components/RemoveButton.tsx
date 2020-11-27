@@ -1,7 +1,7 @@
 import React from "react"
-import { ActionButtonProps, Item, SavedItems, saved_items_key } from "../types"
 import { Button } from "@material-ui/core"
 import DeleteIcon from "@material-ui/icons/Delete"
+import { ActionButtonProps, Item, SavedItems, saved_items_key } from "../types"
 
 export const RemoveButton = (pageInfo : ActionButtonProps) => 
     <Button

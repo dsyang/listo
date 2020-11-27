@@ -1,7 +1,7 @@
 import React from "react"
-import { ActionButtonProps, Item, SavedItems } from "../types"
 import { Button } from "@material-ui/core"
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
+import { ActionButtonProps, Item, SavedItems } from "../types"
 
 export const AddButton = (pageInfo : ActionButtonProps) => 
     <Button

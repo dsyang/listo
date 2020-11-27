@@ -1,4 +1,5 @@
-import { AppPrimaryColor, StorageState, saved_items_key } from "./types"
+import { StorageState, saved_items_key } from "./types"
+import { Theme } from "./components/Theme"
 
 /** Set the initial state for the extension. */
 chrome.runtime.onInstalled.addListener(function() {
@@ -19,12 +20,12 @@ chrome.storage.onChanged.addListener(function(changes) {
     if (changes.hasOwnProperty(saved_items_key)) {
         const num_items: number = saved_items.newValue.length
         if (num_items > 9) {
-            chrome.browserAction.setBadgeBackgroundColor({color: AppPrimaryColor})
+            chrome.browserAction.setBadgeBackgroundColor({color: Theme.palette.primary.dark})
             chrome.browserAction.setBadgeText({text: "9+"})
         } else if (num_items == 0) {
             chrome.browserAction.setBadgeText({text: ""})
         } else {
-            chrome.browserAction.setBadgeBackgroundColor({color: AppPrimaryColor})
+            chrome.browserAction.setBadgeBackgroundColor({color: Theme.palette.primary.dark})
             chrome.browserAction.setBadgeText({text: num_items.toLocaleString("en-US")})
         }
     }

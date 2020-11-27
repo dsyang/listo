@@ -21,7 +21,3 @@ export interface ActionButtonProps {
     title: string,
     url: string
 }
-
-/** color strings for the theme. */
-export const AppPrimaryColor: string = "#C757FD"
-export const AppSecondaryColor: string = "#F44336"

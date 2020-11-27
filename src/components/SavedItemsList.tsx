@@ -1,8 +1,8 @@
 import React from "react"
-import { Item, SavedItems } from "../types"
-import { SavedItem, SavedItemProps } from "./SavedItem"
-import styles from "./App.module.css"
 import { List, Typography } from "@material-ui/core"
+import { SavedItems } from "../types"
+import { SavedItem } from "./SavedItem"
+import styles from "./App.module.css"
 
 export interface SavedItemsListProps extends SavedItems {}
 
