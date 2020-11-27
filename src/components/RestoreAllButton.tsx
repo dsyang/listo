@@ -8,7 +8,6 @@ export interface RestoreAllButtonProps {
 export const RestoreAllButton = (props: RestoreAllButtonProps) =>
     <Tooltip title="Open all items in new window.">
     <IconButton
-        size="small"
         onClick = {() => restoreAllInNewWindow(props.urls)}>
         <OpenInBrowserIcon />
     </IconButton>

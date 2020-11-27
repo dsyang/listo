@@ -1,4 +1,4 @@
-import { IconButton, Tooltip } from "@material-ui/core"
+import { IconButton, ListItem, ListItemText, ListItemSecondaryAction, Tooltip } from "@material-ui/core"
 import React from "react"
 import { Item, SavedItems, saved_items_key } from "../types"
 import DeleteIcon from "@material-ui/icons/Delete"
@@ -7,7 +7,7 @@ export interface SavedItemProps extends Item {
 
 }
 
-export const SavedItem = (props: SavedItemProps) => {
+export const SavedItemOld = (props: SavedItemProps) => {
     return <div onClick={() => itemClick(props.url)}>
         <p>{props.title}</p>
         <p>{props.url}</p>
@@ -22,6 +22,30 @@ export const SavedItem = (props: SavedItemProps) => {
             </IconButton>
         </Tooltip>
     </div>
+}
+
+export const SavedItem = (props: SavedItemProps) => {
+    return <ListItem key={props.url} alignItems="flex-start" button>
+        <ListItemText 
+            primary={props.title}
+            secondary={props.url}
+            primaryTypographyProps={{noWrap: true}}
+            secondaryTypographyProps={{noWrap: true}}
+            onClick={() => itemClick(props.url)}
+        />
+        <ListItemSecondaryAction>
+            <Tooltip title="Remove Item">
+                <IconButton
+                    size="small" 
+                    onClick={(e) => {
+                        removeItem(props)
+                        e.stopPropagation()
+                        }}> 
+                    <DeleteIcon />
+                </IconButton>
+            </Tooltip>
+        </ListItemSecondaryAction>
+    </ListItem>
 }
 
 function removeItem(props: Item) {

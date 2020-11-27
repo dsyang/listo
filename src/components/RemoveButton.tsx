@@ -12,7 +12,7 @@ export const RemoveButton = (pageInfo : ActionButtonProps) =>
         Remove from listo
     </Button>
 
-/** Add a new Item into chrome storage. */
+/** Remove this item from chrome storage. */
 function removeFromStorage(title: string, url: string) {
     chrome.storage.sync.get(saved_items_key, ({[saved_items_key]: data}) => {
         let newItemsList = (data as Item[]).filter((item) => item.url != url) 

@@ -10,7 +10,6 @@ chrome.runtime.onInstalled.addListener(function() {
 
     chrome.storage.sync.set(initial_state, () => {
             console.log("installed time was: " + install_time.toLocaleTimeString("en-US"))
-            set_debug_funcs()
         })
 })
 

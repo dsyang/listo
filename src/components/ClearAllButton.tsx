@@ -6,7 +6,6 @@ import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 export const ClearAllButton = () =>
     <Tooltip title="Remove all items from listo.">
         <IconButton 
-            size="small"
             onClick = {() => clearAllSavedItems()}>
             <DeleteSweepIcon />
         </IconButton>

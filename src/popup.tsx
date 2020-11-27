@@ -2,7 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { App, AppProps } from "./components/App"
 import { Error } from "./components/Error"
-import { Item, SavedItems, saved_items_key } from "./types"
+import { SavedItems, saved_items_key } from "./types"
 
 /** Get active tab and current list information. */
 chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
@@ -14,7 +14,6 @@ chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
 /** React to changes to saved_items and update the list. */
 chrome.storage.onChanged.addListener(function(changes) {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        console.log("React to change:", changes, tabs)
         let newSavedItems : SavedItems | null
         if (changes.hasOwnProperty(saved_items_key)) {
             newSavedItems = { saved_items: changes[saved_items_key].newValue}
@@ -29,10 +28,11 @@ chrome.storage.onChanged.addListener(function(changes) {
 function renderApp(tabs: chrome.tabs.Tab[], items: SavedItems | null) {
     if (isDataValid(tabs, items)) {
         const appData = constuctAppProps(tabs[0], items!!)
-        console.log(appData)
         ReactDOM.render(<App {...appData} />, document.getElementById("root"))
     } else {
-        ReactDOM.render(<Error content="Sorry! We could not determine this tab's information." />, document.getElementById("root"))
+        ReactDOM.render(
+            <Error content="Sorry! We could not determine this tab's information." />,
+            document.getElementById("root"))
     }
 }
 
