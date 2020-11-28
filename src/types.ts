@@ -13,11 +13,15 @@ export interface SavedItems {
 /** Each individual item stored in chrome.storage */
 export interface Item {
     title: string,
-    url: string
+    url: string,
+    favicon_url: string,
 }
+
+export const NO_FAVICON: string = ""
 
 /** Props for the different buttons. */
 export interface ActionButtonProps {
     title: string,
-    url: string
+    url: string,
+    favicon_url: string,
 }

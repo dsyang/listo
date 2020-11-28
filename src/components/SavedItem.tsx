@@ -1,12 +1,16 @@
 import React from "react"
-import { IconButton, ListItem, ListItemText, ListItemSecondaryAction, Tooltip } from "@material-ui/core"
+import { IconButton, ListItem, ListItemText, ListItemSecondaryAction, Tooltip, ListItemAvatar, Avatar } from "@material-ui/core"
 import DeleteIcon from "@material-ui/icons/Delete"
-import { Item, SavedItems, saved_items_key } from "../types"
+import CloudIcon from '@material-ui/icons/Cloud'
+import { Item, NO_FAVICON, SavedItems, saved_items_key } from "../types"
 
 export interface SavedItemProps extends Item {}
 
 export const SavedItem = (props: SavedItemProps) => {
     return <ListItem key={props.url} alignItems="flex-start" button component="li">
+        <ListItemAvatar>
+            <SavedItemAvatar url={props.favicon_url}/>
+        </ListItemAvatar>
         <ListItemText 
             primary={props.title}
             secondary={props.url}
@@ -27,6 +31,15 @@ export const SavedItem = (props: SavedItemProps) => {
             </Tooltip>
         </ListItemSecondaryAction>
     </ListItem>
+}
+
+const SavedItemAvatar = (props: {url: string}) => {
+    if (props.url === NO_FAVICON) {
+        console.log("no favicon")
+        return <Avatar ><CloudIcon/></Avatar>
+    } else {
+        return <Avatar alt="favicon" src={props.url} />
+    }
 }
 
 function removeItem(props: Item) {

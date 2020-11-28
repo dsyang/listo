@@ -4,7 +4,7 @@ import { ThemeProvider } from "@material-ui/core"
 import { App, AppProps } from "./components/App"
 import { Error } from "./components/Error"
 import { Theme } from "./components/Theme"
-import { SavedItems, saved_items_key } from "./types"
+import { NO_FAVICON, SavedItems, saved_items_key } from "./types"
 
 /** Get active tab and current list information. */
 chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
@@ -52,7 +52,7 @@ function isDataValid(tabs: chrome.tabs.Tab[], items: SavedItems | null) {
 
 function constuctAppProps(activeTab: chrome.tabs.Tab, savedItems: SavedItems): AppProps {
     return {
-        actionButton: {title: activeTab.title!!,  url: activeTab.url!!},
+        actionButton: {title: activeTab.title!!,  url: activeTab.url!!, favicon_url: activeTab.favIconUrl ?? NO_FAVICON},
         savedItemsList: savedItems
     }
 }
