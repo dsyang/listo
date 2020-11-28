@@ -30,10 +30,3 @@ chrome.storage.onChanged.addListener(function(changes) {
         }
     }
 })
-
-/** Debug functions */
-function set_debug_funcs() {
-    (<any>window).debug_read_storage = function() {
-        chrome.storage.sync.get((items) => console.log(items))
-    }
-}

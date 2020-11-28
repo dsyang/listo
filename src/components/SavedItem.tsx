@@ -3,29 +3,10 @@ import { IconButton, ListItem, ListItemText, ListItemSecondaryAction, Tooltip } 
 import DeleteIcon from "@material-ui/icons/Delete"
 import { Item, SavedItems, saved_items_key } from "../types"
 
-export interface SavedItemProps extends Item {
-
-}
-
-export const SavedItemOld = (props: SavedItemProps) => {
-    return <div onClick={() => itemClick(props.url)}>
-        <p>{props.title}</p>
-        <p>{props.url}</p>
-        <Tooltip title="Remove Item">
-            <IconButton
-                size="small" 
-                onClick={(e) => {
-                    removeItem(props)
-                    e.stopPropagation()
-                    }}> 
-                <DeleteIcon />
-            </IconButton>
-        </Tooltip>
-    </div>
-}
+export interface SavedItemProps extends Item {}
 
 export const SavedItem = (props: SavedItemProps) => {
-    return <ListItem key={props.url} alignItems="flex-start" button>
+    return <ListItem key={props.url} alignItems="flex-start" button component="li">
         <ListItemText 
             primary={props.title}
             secondary={props.url}

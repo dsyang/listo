@@ -7,12 +7,11 @@ import styles from "./App.module.css"
 export interface SavedItemsListProps extends SavedItems {}
 
 export const SavedItemsList = (props: SavedItemsListProps) => {
-    const listItems = props.saved_items.map(
-        (item) => <li key={item.url}><SavedItem {...item} /></li>)
+    const listItems = props.saved_items.map((item) => <SavedItem {...item} />)
     if (listItems.length == 0) {
         return <EmptyList />
     } else {
-        return <List>{listItems}</List>
+        return <List dense={true}>{listItems}</List>
     }
 }
 
