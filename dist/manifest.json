@@ -1,7 +1,7 @@
 {
     "name": "Shopo Listo",
-    "version": "0.1",
-    "description": "Extension that adds two buttons: save (saves the website) restore (opens all websites as tabs in a new window)",
+    "version": "1.0",
+    "description": "Extension that saves and restores websites",
     "manifest_version": 2,
     "permissions": ["activeTab", "storage", "tabs"],
     "background": {
