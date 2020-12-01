@@ -25,3 +25,7 @@ export interface ActionButtonProps {
     url: string,
     favicon_url: string,
 }
+
+export const CHROME_BOOKMARKS_ROOT_ID = "0"
+export const CHROME_OTHER_BOOKMARKS = "Other bookmarks"
+export const LISTO_ROOT_FOLDER_NAME = "Listos"

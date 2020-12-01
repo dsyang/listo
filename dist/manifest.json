@@ -3,7 +3,7 @@
     "version": "1.0",
     "description": "Extension that saves and restores websites",
     "manifest_version": 2,
-    "permissions": ["activeTab", "storage", "tabs"],
+    "permissions": ["activeTab", "storage", "tabs", "bookmarks"],
     "background": {
         "scripts": ["background.js"],
         "persistent": false

@@ -7,7 +7,13 @@ chrome.runtime.onInstalled.addListener(function() {
 
 /** Debug functions */
 function set_debug_funcs() {
-    (<any>window).debug_read_storage = function() {
+    let globalObject: any = (<any>window)
+
+    globalObject.debug_read_storage = function() {
         chrome.storage.sync.get((items) => console.log(items))
+    }
+
+    globalObject.debug_read_bookmarks = function() {
+        chrome.bookmarks.getTree((tree) => console.log(tree))
     }
 }
