@@ -3,3 +3,4 @@ dist/*.js
 dist/*.js.LICENSE.txt
 dist/*.js.map
 releases
+.nyc_output/
